@@ -36,6 +36,14 @@ class GenericQueueTest {
         assertEquals(expectedResult, actualResult);
     }
 
+    @Test
+    @DisplayName("Test dequeue on empty queue")
+    void dequeueTest_emptyQueue() {
+        GenericQueue queue = new GenericQueue();
+        assertThrows(EmptyQueueException.class, () -> queue.dequeue());
+
+    }
+
 
     @SuppressWarnings("unchecked")
     private GenericQueue createQueue(int size) {
