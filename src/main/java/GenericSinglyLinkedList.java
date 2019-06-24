@@ -53,6 +53,29 @@ public class GenericSinglyLinkedList<T> {
         this.size++;
     }
 
+    @SuppressWarnings("unchecked")
+    public void remove(int index) {
+        checkIndex(index);
+
+
+        if(this.head == this.tail) {
+            tail = null;
+        }
+
+        if(index == 0) {
+            this.head = this.head.next();
+        }else{
+            Node previousNode = findPreviousNode(index);
+            previousNode.setNext(previousNode.next().next());
+
+            if (previousNode.next() == null) {
+                this.tail = previousNode;
+            }
+        }
+
+        this.size--;
+    }
+
     private Node findPreviousNode(int index) {
         int nodeIndex = 0;
         Node currentNode = this.head;
