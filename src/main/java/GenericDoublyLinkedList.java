@@ -32,4 +32,17 @@ public class GenericDoublyLinkedList<T> {
     public Object tail() { return this.tail.getContent() }
 
 
+    public void add(T element) {
+        Node newNode = new Node(element);
+
+        if (this.size == 0) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            this.tail.setNext(newNode);
+            newNode.setPrevious(this.tail);
+            this.tail = newNode;
+        }
+    }
+
 }
