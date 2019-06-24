@@ -76,6 +76,23 @@ public class GenericSinglyLinkedList<T> {
         this.size--;
     }
 
+    @SuppressWarnings("unchecked")
+    public void insert(int index, T element) {
+        checkIndex(index);
+        Node newNode = new Node(element);
+
+        if (index == 0) {
+            newNode.setNext(this.head);
+            this.head = newNode;
+        } else {
+            Node previousNode = findPreviousNode(index);
+            newNode.setNext(previousNode.next());
+            previousNode.setNext(newNode);
+        }
+
+        this.size++;
+    }
+
     private Node findPreviousNode(int index) {
         int nodeIndex = 0;
         Node currentNode = this.head;
