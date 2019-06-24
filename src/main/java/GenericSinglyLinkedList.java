@@ -30,5 +30,7 @@ public class GenericSinglyLinkedList<T> {
     private Node tail;
     private int size = 0;
 
-
+    public Node head() {
+        return this.head;
+    }
 }
