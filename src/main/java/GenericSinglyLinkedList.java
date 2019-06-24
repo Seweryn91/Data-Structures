@@ -1,0 +1,2 @@
+public class GenericSinglyLinkedList<T> {
+}
