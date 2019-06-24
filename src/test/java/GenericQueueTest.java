@@ -44,7 +44,14 @@ class GenericQueueTest {
     }
 
     @Test
-    @DisplayName("Test head")
+    @DisplayName("Test peek")
+    void queueTest_peek() {
+        GenericQueue queue = createQueue(3);
+        assertEquals(0, queue.peek());
+    }
+
+    @Test
+    @DisplayName("Test queue head")
     void queueTest_testHead() throws EmptyQueueException {
         GenericQueue queue = createQueue(3);
         String expectedHead = "0";
@@ -52,7 +59,7 @@ class GenericQueueTest {
     }
 
     @Test
-    @DisplayName("Test size")
+    @DisplayName("Test queue size")
     void queueTest_testSize() {
         GenericQueue queue = createQueue(3);
         int expectedSize = 3;
