@@ -64,6 +64,21 @@ class GenericDoublyLinkedListTest {
     }
 
 
+    @Test
+    @DisplayName("Test get with too high index")
+    void testGet_improperIndex_tooHigh() {
+        GenericDoublyLinkedList list = createList(5);
+        assertThrows(IllegalArgumentException.class, () -> list.get(5));
+    }
+
+    @Test
+    @DisplayName("Test get with negative index")
+    void testGet_improperIndex_negative() {
+        GenericDoublyLinkedList list = createList(5);
+        assertThrows(IllegalArgumentException.class, () -> list.get(-3));
+    }
+
+
     @SuppressWarnings("unchecked")
     private GenericDoublyLinkedList createList(int size){
         GenericDoublyLinkedList list = new GenericDoublyLinkedList();
@@ -71,14 +86,6 @@ class GenericDoublyLinkedListTest {
             list.add(i);
 
         return list;
-    }
-
-    @Test
-    @DisplayName("Test get with too high index")
-    void testGet_improperIndex_tooHigh() {
-        GenericDoublyLinkedList list = createList(5);
-        assertThrows(IllegalArgumentException.class, () -> list.get(5));
-
     }
 
 }
