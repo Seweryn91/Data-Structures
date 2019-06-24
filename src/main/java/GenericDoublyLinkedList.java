@@ -23,6 +23,13 @@ public class GenericDoublyLinkedList<T> {
 
     }
 
+    private Node head;
+    private Node tail;
+    private int size = 0;
+
+    public Object head() { return this.head.getContent(); }
+
+    public Object tail() { return this.tail.getContent() }
 
 
 }
