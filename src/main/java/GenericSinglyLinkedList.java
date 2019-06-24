@@ -37,4 +37,18 @@ public class GenericSinglyLinkedList<T> {
     public Node tail() {
         return this.tail;
     }
-}
+
+    @SuppressWarnings("unchecked")
+    public void add(T element) {
+        Node newNode = new Node(element);
+
+        if (this.size == 0) {
+            this.head = newNode;
+            this.tail = newNode;
+        }else{
+            this.tail.setNext(newNode);
+            this.tail = newNode;
+        }
+
+
+    }
