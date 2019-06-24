@@ -29,7 +29,7 @@ public class GenericStackTest {
         stack.push(3);
 
         int expectedSize = 3;
-        int actualSize = stack.size();
+        int actualSize = stack.spaceTaken();
         Assertions.assertEquals(expectedSize, actualSize);
     }
 
@@ -76,6 +76,20 @@ public class GenericStackTest {
 
         int expected = 15;
         Assertions.assertEquals(expected, stack.pop());
+    }
+
+
+    @Test
+    @DisplayName("Test calculating space left")
+    @SuppressWarnings("unchecked")
+    void testSpaceLeft() throws StackOverflowException{
+        GenericStack stack = new GenericStack(10);
+        stack.push(5);
+        stack.push(6);
+        stack.push(98);
+
+        int expected = 7;
+        Assertions.assertEquals(expected, stack.spaceLeft());
     }
 
 }
