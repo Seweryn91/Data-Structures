@@ -30,6 +30,14 @@ class GenericDoublyLinkedListTest {
         assertEquals("0 7 1 2 3 4", list.toString());
     }
 
+    @Test
+    @DisplayName("Test insert with improper index")
+    @SuppressWarnings("unchecked")
+    void testInsert_improperIndex() {
+        GenericDoublyLinkedList list = createList(5);
+        assertThrows(IllegalArgumentException.class, () -> list.insert(-1, "7"));
+    }
+
 
     @SuppressWarnings("unchecked")
     private GenericDoublyLinkedList createList(int size){
