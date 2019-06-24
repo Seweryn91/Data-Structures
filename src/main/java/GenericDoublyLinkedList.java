@@ -29,7 +29,7 @@ public class GenericDoublyLinkedList<T> {
 
     public Object head() { return this.head.getContent(); }
 
-    public Object tail() { return this.tail.getContent() }
+    public Object tail() { return this.tail.getContent(); }
 
 
     public void add(T element) {
@@ -125,6 +125,19 @@ public class GenericDoublyLinkedList<T> {
         if (index < 0 || index > size-1) {
             throw new IllegalArgumentException("Index cannot be lower than 0 or higher than size of list!");
         }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        Node currentNode = this.head;
+
+        while (currentNode != null) {
+            stringBuilder.append(currentNode.getContent()).append(" ");
+            currentNode = currentNode.next();
+        }
+
+        return stringBuilder.toString().trim();
     }
 
 }
