@@ -45,6 +45,15 @@ class GenericSinglyLinkedListTest {
         assertEquals(expectedResult, actualResult);
     }
 
+    @Test
+    @DisplayName("Test removing elements with incorrect indexes")
+    void removeTest_WithIncorrectInput() {
+        GenericSinglyLinkedList linkedList = createList(10);
+
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> linkedList.remove(20));
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> linkedList.remove(-1));
+    }
+
     @SuppressWarnings("unchecked")
     private GenericSinglyLinkedList createList(int size) {
         GenericSinglyLinkedList linkedList = new GenericSinglyLinkedList();
