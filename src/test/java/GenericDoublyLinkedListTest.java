@@ -9,7 +9,16 @@ class GenericDoublyLinkedListTest {
     @DisplayName("Test head")
     void testHead() {
         GenericDoublyLinkedList list = createList(5);
-        assertEquals("0", list.head().toString());
+        Integer expected = 0;
+        assertEquals(expected, list.head());
+    }
+
+    @Test
+    @DisplayName("Test tail")
+    void testTail() {
+        GenericDoublyLinkedList list = createList(5);
+        Integer expected = 4;
+        assertEquals(expected, list.tail());
     }
 
 
