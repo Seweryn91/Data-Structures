@@ -93,6 +93,7 @@ public class GenericSinglyLinkedList<T> {
         this.size++;
     }
 
+    @SuppressWarnings("unchecked")
     private Node findPreviousNode(int index) {
         int nodeIndex = 0;
         Node currentNode = this.head;
@@ -109,6 +110,20 @@ public class GenericSinglyLinkedList<T> {
         if (index < 0 || index >= this.size) {
             throw new ArrayIndexOutOfBoundsException("Invalid index: " + index);
         }
+    }
+
+    @Override
+    @SuppressWarnings("unckeched")
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        Node currentNode = this.head;
+
+        while (currentNode != null) {
+            sb.append(currentNode.getContent()).append(" ");
+            currentNode = currentNode.next();
+        }
+
+        return sb.toString().trim();
     }
 
 }
