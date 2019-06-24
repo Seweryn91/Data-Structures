@@ -53,6 +53,19 @@ public class GenericQueue<T> {
         this.size++;
     }
 
+    public T dequeue() {//throws EmptyQueueException {
+        if (this.size < 1) {
+            //TODO: implement exception throw new EmptyQueueException("Queue is empty!");
+        }
+
+        Node removedNode = this.head;
+
+        this.head = this.head.getNextNode();
+        this.size--;
+
+        return removedNode.getValue();
+    }
+
     private void insertNode(Node node) {
         Node currentNode = this.head;
 
