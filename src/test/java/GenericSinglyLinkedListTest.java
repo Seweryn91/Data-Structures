@@ -16,12 +16,21 @@ class GenericSinglyLinkedListTest {
     }
 
     @Test
-    @DisplayName("Test Head")
+    @DisplayName("Test linked list head")
     void addTest_testHead() {
         GenericSinglyLinkedList linkedList = createLinkedListForAddTest();
         String expectedHead = "5";
         String actualHead = linkedList.head().toString();
         assertEquals(expectedHead, actualHead);
+    }
+
+    @Test
+    @DisplayName("Test Tail")
+    void addTest_testTail() {
+        GenericSinglyLinkedList linkedList = createLinkedListForAddTest();
+        String expectedTail = "10";
+        String actualTail = linkedList.tail().toString();
+        assertEquals(expectedTail, actualTail);
     }
 
     @SuppressWarnings("unchecked")
