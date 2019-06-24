@@ -46,6 +46,14 @@ public class GenericDoublyLinkedList<T> {
         this.size++;
     }
 
+    public void popNode(Node node) {
+        Node precedingNode = node.previous();
+        Node nextNode = node.next();
+
+        precedingNode.setNext(nextNode);
+        nextNode.setPrevious(precedingNode);
+    }
+
     private Node findNode(int index) {
         int nodeIndex = 0;
         Node currentNode = this.head;
