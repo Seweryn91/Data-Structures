@@ -60,6 +60,27 @@ public class GenericDoublyLinkedList<T> {
         this.size--;
     }
 
+    public void insert(int index, T element) {
+        checkIndex(index);
+
+        Node insertedNode = new Node(element);
+
+        if (index == 0) {
+            insertedNode.setNext(this.head);
+            this.head = insertedNode;
+        } else {
+            Node previousNode = findNode(index).previous();
+            Node nextNode = previousNode.next();
+
+            insertedNode.setNext(nextNode);
+            insertedNode.setPrevious(previousNode);
+            previousNode.setNext(insertedNode);
+            nextNode.setPrevious(insertedNode);
+        }
+
+        this.size++;
+    }
+
     public void setTail() {
         if (this.head == null) {
             this.tail = null;
