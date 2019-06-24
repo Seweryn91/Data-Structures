@@ -44,7 +44,6 @@ public class GenericStackTest {
         Assertions.assertThrows(StackOverflowException.class, () -> stack.push(2));
     }
 
-
     @Test
     @DisplayName("Test popping too much items")
     @SuppressWarnings("unchecked")
@@ -55,5 +54,16 @@ public class GenericStackTest {
         Assertions.assertThrows(StackUnderflowException.class, () -> stack.pop());
     }
 
+    @Test
+    @DisplayName("Test peeking")
+    @SuppressWarnings("unchecked")
+    void testStackPeek() throws StackOverflowException {
+        GenericStack stack = new GenericStack(10);
+        stack.push(1);
+        stack.push(2);
+        stack.push(79);
 
+        int expected = 79;
+        assertEquals(expected, stack.peek());
+    }
 }
