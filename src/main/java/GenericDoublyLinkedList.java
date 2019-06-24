@@ -46,6 +46,20 @@ public class GenericDoublyLinkedList<T> {
         this.size++;
     }
 
+    public void remove(int index) {
+        checkIndex(index);
+
+        if (index == 0) {
+            this.head = this.head.next();
+        } else {
+            Node removedNode = findNode(index);
+            popNode(removedNode);
+        }
+
+        setTail();
+        this.size--;
+    }
+
     public void setTail() {
         if (this.head == null) {
             this.tail = null;
