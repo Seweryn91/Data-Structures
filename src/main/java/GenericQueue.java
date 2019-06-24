@@ -37,7 +37,20 @@ public class GenericQueue<T> {
     private int size = 0;
 
     public void enqueue(T element) {
-        //TODO: implement method enqueue with priority
+        enqueue(element, -1);
+    }
+
+    public void enqueue(T element, Integer priority) {
+        Node newNode = new Node(element, priority);
+
+        if (size == 0) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            insertNode(newNode);
+        }
+
+        this.size++;
     }
 
     private void insertNode(Node node) {
