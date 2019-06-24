@@ -41,7 +41,14 @@ class GenericQueueTest {
     void dequeueTest_emptyQueue() {
         GenericQueue queue = new GenericQueue();
         assertThrows(EmptyQueueException.class, () -> queue.dequeue());
+    }
 
+    @Test
+    @DisplayName("Test head")
+    void queueTest_testHead() throws EmptyQueueException {
+        GenericQueue queue = createQueue(3);
+        String expectedHead = "0";
+        assertEquals(expectedHead, queue.peek().toString());
     }
 
 
