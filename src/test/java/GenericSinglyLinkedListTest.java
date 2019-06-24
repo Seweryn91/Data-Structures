@@ -90,6 +90,14 @@ class GenericSinglyLinkedListTest {
         assertEquals(expectedResult, actualResult);
     }
 
+    @Test
+    @DisplayName("Test inserting value on negative index")
+    void insertTest_incorrectIndex_negative() {
+        GenericSinglyLinkedList linkedList = createList(10);
+
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> linkedList.insert(-1, 9));
+    }
+
     @SuppressWarnings("unchecked")
     private GenericSinglyLinkedList createList(int size) {
         GenericSinglyLinkedList linkedList = new GenericSinglyLinkedList();
