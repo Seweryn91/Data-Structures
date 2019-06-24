@@ -1,3 +1,4 @@
+import com.sun.xml.internal.ws.dump.MessageDumping;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -47,11 +48,18 @@ class GenericSinglyLinkedListTest {
 
     @Test
     @DisplayName("Test removing elements with incorrect indexes")
-    void removeTest_WithIncorrectInput() {
+    void removeTest_WithIncorrectInput_OutOfBounds() {
         GenericSinglyLinkedList linkedList = createList(10);
 
         assertThrows(ArrayIndexOutOfBoundsException.class, () -> linkedList.remove(20));
-        assertThrows(ArrayIndexOutOfBoundsException.class, () -> linkedList.remove(-1));
+    }
+
+    @Test
+    @DisplayName("Test removing elements with incorrect indexes")
+    void removeTest_WithIncorrectInput_negative() {
+        GenericSinglyLinkedList linkedList = createList(10);
+
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> linkedList.remove(-10));
     }
 
     @SuppressWarnings("unchecked")
