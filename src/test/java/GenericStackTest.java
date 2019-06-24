@@ -4,8 +4,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 
 public class GenericStackTest {
 
@@ -64,6 +62,20 @@ public class GenericStackTest {
         stack.push(79);
 
         int expected = 79;
-        assertEquals(expected, stack.peek());
+        Assertions.assertEquals(expected, stack.peek());
     }
+
+    @Test
+    @DisplayName("Test popping elements from stack")
+    @SuppressWarnings("unchecked")
+    void testPop() throws StackOverflowException, StackUnderflowException {
+        GenericStack stack = new GenericStack(10);
+        stack.push(1);
+        stack.push(2);
+        stack.push(15);
+
+        int expected = 15;
+        Assertions.assertEquals(expected, stack.pop());
+    }
+
 }
