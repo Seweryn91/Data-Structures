@@ -1,3 +1,5 @@
+import exceptions.EmptyQueueException;
+
 public class GenericQueue<T> {
 
     class Node {
@@ -53,9 +55,9 @@ public class GenericQueue<T> {
         this.size++;
     }
 
-    public T dequeue() {//throws EmptyQueueException {
+    public T dequeue() throws EmptyQueueException {
         if (this.size < 1) {
-            //TODO: implement exception throw new EmptyQueueException("Queue is empty!");
+            throw new EmptyQueueException("Queue is empty!");
         }
 
         Node removedNode = this.head;
