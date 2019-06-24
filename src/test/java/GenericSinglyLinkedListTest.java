@@ -117,6 +117,16 @@ class GenericSinglyLinkedListTest {
         return linkedList;
     }
 
+    @Test
+    @DisplayName("Test getting value from correct index")
+    void getTest_correctIndex() {
+        GenericSinglyLinkedList linkedList = createList(10);
+        String expectedResult = "3";
+        String actualResult = linkedList.get(3).toString();
+
+        assertEquals(expectedResult, actualResult);
+    }
+
     @SuppressWarnings("unchecked")
     private GenericSinglyLinkedList createLinkedListForAddTest() {
         GenericSinglyLinkedList linkedList = new GenericSinglyLinkedList();
