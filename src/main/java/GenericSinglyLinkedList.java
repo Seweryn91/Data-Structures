@@ -25,4 +25,10 @@ public class GenericSinglyLinkedList<T> {
             return content.toString();
         }
     }
+
+    private Node head;
+    private Node tail;
+    private int size = 0;
+
+
 }
