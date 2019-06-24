@@ -43,6 +43,13 @@ public class GenericDoublyLinkedList<T> {
             newNode.setPrevious(this.tail);
             this.tail = newNode;
         }
+        this.size++;
+    }
+
+    private void checkIndex(int index) {
+        if (index < 0 || index > size-1) {
+            throw new IllegalArgumentException("Index cannot be lower than 0 or higher than size of list!");
+        }
     }
 
 }
