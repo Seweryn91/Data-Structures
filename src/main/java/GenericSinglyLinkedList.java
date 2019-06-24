@@ -53,6 +53,18 @@ public class GenericSinglyLinkedList<T> {
         this.size++;
     }
 
+    private Node findPreviousNode(int index) {
+        int nodeIndex = 0;
+        Node currentNode = this.head;
+
+        while (nodeIndex + 1 != index) {
+            currentNode = currentNode.next();
+            nodeIndex++;
+        }
+
+        return currentNode;
+    }
+
     private void checkIndex(int index) {
         if (index < 0 || index >= this.size) {
             throw new ArrayIndexOutOfBoundsException("Invalid index: " + index);
