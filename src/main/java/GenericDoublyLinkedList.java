@@ -46,6 +46,18 @@ public class GenericDoublyLinkedList<T> {
         this.size++;
     }
 
+    private Node findNode(int index) {
+        int nodeIndex = 0;
+        Node currentNode = this.head;
+
+        while (nodeIndex != index) {
+            currentNode = currentNode.next();
+            nodeIndex++;
+        }
+
+        return currentNode;
+    }
+
     private void checkIndex(int index) {
         if (index < 0 || index > size-1) {
             throw new IllegalArgumentException("Index cannot be lower than 0 or higher than size of list!");
