@@ -51,6 +51,15 @@ class GenericQueueTest {
         assertEquals(expectedHead, queue.peek().toString());
     }
 
+    @Test
+    @DisplayName("Test size")
+    void queueTest_testSize() {
+        GenericQueue queue = createQueue(3);
+        int expectedSize = 3;
+        assertEquals(expectedSize, queue.size());
+    }
+
+
 
     @SuppressWarnings("unchecked")
     private GenericQueue createQueue(int size) {
