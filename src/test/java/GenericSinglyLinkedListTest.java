@@ -19,8 +19,8 @@ class GenericSinglyLinkedListTest {
     @DisplayName("Test linked list head")
     void addTest_testHead() {
         GenericSinglyLinkedList linkedList = createLinkedListForAddTest();
-        String expectedHead = "5";
-        String actualHead = linkedList.head().toString();
+        Integer expectedHead = 5;
+        Integer actualHead = (Integer) linkedList.head().getContent();
         assertEquals(expectedHead, actualHead);
     }
 
@@ -28,8 +28,8 @@ class GenericSinglyLinkedListTest {
     @DisplayName("Test linked list tail")
     void addTest_testTail() {
         GenericSinglyLinkedList linkedList = createLinkedListForAddTest();
-        String expectedTail = "10";
-        String actualTail = linkedList.tail().toString();
+        Integer expectedTail = 10;
+        Integer actualTail = (Integer) linkedList.tail().getContent();
         assertEquals(expectedTail, actualTail);
     }
 
@@ -111,8 +111,8 @@ class GenericSinglyLinkedListTest {
     @DisplayName("Test getting value from correct index")
     void getTest_correctIndex() {
         GenericSinglyLinkedList linkedList = createList(10);
-        String expectedResult = "3";
-        String actualResult = linkedList.get(3).toString();
+        Integer expectedResult = 3;
+        Integer actualResult = (Integer) linkedList.get(3).getContent();
 
         assertEquals(expectedResult, actualResult);
     }
