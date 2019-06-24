@@ -134,6 +134,14 @@ class GenericSinglyLinkedListTest {
         assertThrows(ArrayIndexOutOfBoundsException.class, () -> linkedList.get(10));
     }
 
+    @Test
+    @DisplayName("Test getting value from empty list")
+    void getTest_fromEmptyList() {
+        GenericSinglyLinkedList linkedList = new GenericSinglyLinkedList();
+
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> linkedList.get(0));
+    }
+
     @SuppressWarnings("unchecked")
     private GenericSinglyLinkedList createList(int size) {
         GenericSinglyLinkedList linkedList = new GenericSinglyLinkedList();
