@@ -53,6 +53,10 @@ public class GenericSinglyLinkedList<T> {
         this.size++;
     }
 
-
+    private void checkIndex(int index) {
+        if (index < 0 || index >= this.size) {
+            throw new ArrayIndexOutOfBoundsException("Invalid index: " + index);
+        }
+    }
 
 }
