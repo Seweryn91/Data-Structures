@@ -38,6 +38,14 @@ class GenericDoublyLinkedListTest {
         assertThrows(IllegalArgumentException.class, () -> list.insert(-1, "7"));
     }
 
+    @Test
+    @DisplayName("Test remove")
+    void testRemove() {
+        GenericDoublyLinkedList list = createList(5);
+        list.remove(1);
+        assertEquals("0 2 3 4", list.toString());
+    }
+
 
     @SuppressWarnings("unchecked")
     private GenericDoublyLinkedList createList(int size){
