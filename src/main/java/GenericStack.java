@@ -29,4 +29,9 @@ public class GenericStack<T> {
         Object poppedIdem = array[top--];
         return (T) poppedIdem;
     }
+
+    @SuppressWarnings("unchecked")
+    public T peek() {
+        return (T) array[top];
+    }
 }
