@@ -34,4 +34,13 @@ public class GenericStackTest {
         Assertions.assertEquals(expectedSize, actualSize);
     }
 
+    @Test
+    @DisplayName("Test pushing too much items")
+    @SuppressWarnings("unchecked")
+    void testStackOverflow() throws StackOverflowException {
+        GenericStack stack = new GenericStack(1);
+        stack.push(1);
+        Assertions.assertThrows(StackOverflowException.class, () -> stack.push(2));
+    }
+
 }
