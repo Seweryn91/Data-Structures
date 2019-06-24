@@ -85,4 +85,9 @@ public class GenericQueue<T> {
                 this.tail = node;
             }
         }
+    }
+
+    public T peek() {
+        return this.head.getValue();
+    }
 }
