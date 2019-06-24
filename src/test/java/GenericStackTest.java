@@ -1,4 +1,5 @@
 import exceptions.StackOverflowException;
+import exceptions.StackUnderflowException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -42,5 +43,17 @@ public class GenericStackTest {
         stack.push(1);
         Assertions.assertThrows(StackOverflowException.class, () -> stack.push(2));
     }
+
+
+    @Test
+    @DisplayName("Test popping too much items")
+    @SuppressWarnings("unchecked")
+    void testStackUnderflow() throws StackUnderflowException, StackOverflowException {
+        GenericStack stack = new GenericStack(1);
+        stack.push(1);
+        stack.pop();
+        Assertions.assertThrows(StackUnderflowException.class, () -> stack.pop());
+    }
+
 
 }
