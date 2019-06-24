@@ -78,6 +78,15 @@ class GenericDoublyLinkedListTest {
         assertThrows(IllegalArgumentException.class, () -> list.get(-3));
     }
 
+    @Test
+    @DisplayName("Test size")
+    void testSize() {
+        GenericDoublyLinkedList list = createList(5);
+        assertEquals(5, list.size());
+        list.remove(1);
+        assertEquals(4, list.size());
+    }
+
 
     @SuppressWarnings("unchecked")
     private GenericDoublyLinkedList createList(int size){
