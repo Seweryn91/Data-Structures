@@ -50,5 +50,9 @@ public class GenericSinglyLinkedList<T> {
             this.tail = newNode;
         }
 
-
+        this.size++;
     }
+
+
+
+}
