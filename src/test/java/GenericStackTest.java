@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 public class GenericStackTest {
 
@@ -30,7 +32,7 @@ public class GenericStackTest {
 
         int expectedSize = 3;
         int actualSize = stack.spaceTaken();
-        Assertions.assertEquals(expectedSize, actualSize);
+        assertEquals(expectedSize, actualSize);
     }
 
     @Test
@@ -62,7 +64,7 @@ public class GenericStackTest {
         stack.push(79);
 
         int expected = 79;
-        Assertions.assertEquals(expected, stack.peek());
+        assertEquals(expected, stack.peek());
     }
 
     @Test
@@ -75,7 +77,7 @@ public class GenericStackTest {
         stack.push(15);
 
         int expected = 15;
-        Assertions.assertEquals(expected, stack.pop());
+        assertEquals(expected, stack.pop());
     }
 
 
@@ -89,7 +91,7 @@ public class GenericStackTest {
         stack.push(98);
 
         int expected = 7;
-        Assertions.assertEquals(expected, stack.spaceLeft());
+        assertEquals(expected, stack.spaceLeft());
     }
 
 }
