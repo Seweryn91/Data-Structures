@@ -96,6 +96,11 @@ public class GenericDoublyLinkedList<T> {
         this.tail = currentNode;
     }
 
+    public Object get(int index) {
+        checkIndex(index);
+        return findNode(index).getContent();
+    }
+
     public void popNode(Node node) {
         Node precedingNode = node.previous();
         Node nextNode = node.next();
