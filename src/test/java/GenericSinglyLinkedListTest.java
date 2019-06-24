@@ -15,6 +15,15 @@ class GenericSinglyLinkedListTest {
 
     }
 
+    @Test
+    @DisplayName("Test Head")
+    void addTest_testHead() {
+        GenericSinglyLinkedList linkedList = createLinkedListForAddTest();
+        String expectedHead = "5";
+        String actualHead = linkedList.head().toString();
+        assertEquals(expectedHead, actualHead);
+    }
+
     @SuppressWarnings("unchecked")
     private GenericSinglyLinkedList createList(int size) {
         GenericSinglyLinkedList linkedList = new GenericSinglyLinkedList();
