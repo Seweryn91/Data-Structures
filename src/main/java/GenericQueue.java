@@ -90,4 +90,8 @@ public class GenericQueue<T> {
     public T peek() {
         return this.head.getValue();
     }
+
+    public int size() {
+        return this.size;
+    }
 }
