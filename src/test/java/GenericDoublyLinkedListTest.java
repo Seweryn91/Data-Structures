@@ -21,6 +21,15 @@ class GenericDoublyLinkedListTest {
         assertEquals(expected, list.tail());
     }
 
+    @Test
+    @DisplayName("Test insert")
+    @SuppressWarnings("unchecked")
+    void testInsert() {
+        GenericDoublyLinkedList list = createList(5);
+        list.insert(1, "7");
+        assertEquals("0 7 1 2 3 4", list.toString());
+    }
+
 
     @SuppressWarnings("unchecked")
     private GenericDoublyLinkedList createList(int size){
