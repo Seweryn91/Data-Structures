@@ -108,15 +108,6 @@ class GenericSinglyLinkedListTest {
         assertThrows(ArrayIndexOutOfBoundsException.class, () -> linkedList.insert(10, 9));
     }
 
-    @SuppressWarnings("unchecked")
-    private GenericSinglyLinkedList createList(int size) {
-        GenericSinglyLinkedList linkedList = new GenericSinglyLinkedList();
-        for(int i = 0; i < size; i++) {
-            linkedList.add(i);
-        }
-        return linkedList;
-    }
-
     @Test
     @DisplayName("Test getting value from correct index")
     void getTest_correctIndex() {
@@ -125,6 +116,25 @@ class GenericSinglyLinkedListTest {
         String actualResult = linkedList.get(3).toString();
 
         assertEquals(expectedResult, actualResult);
+    }
+
+    @Test
+    @DisplayName("Test getting value from negative index")
+    void getTest_incorrectIndex() {
+        GenericSinglyLinkedList linkedList = createList(10);
+
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> linkedList.get(-1));
+    }
+
+
+
+    @SuppressWarnings("unchecked")
+    private GenericSinglyLinkedList createList(int size) {
+        GenericSinglyLinkedList linkedList = new GenericSinglyLinkedList();
+        for(int i = 0; i < size; i++) {
+            linkedList.add(i);
+        }
+        return linkedList;
     }
 
     @SuppressWarnings("unchecked")
