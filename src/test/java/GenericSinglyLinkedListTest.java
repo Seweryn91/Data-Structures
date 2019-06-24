@@ -25,12 +25,24 @@ class GenericSinglyLinkedListTest {
     }
 
     @Test
-    @DisplayName("Test Tail")
+    @DisplayName("Test linked list tail")
     void addTest_testTail() {
         GenericSinglyLinkedList linkedList = createLinkedListForAddTest();
         String expectedTail = "10";
         String actualTail = linkedList.tail().toString();
         assertEquals(expectedTail, actualTail);
+    }
+
+    @Test
+    @DisplayName("Test removing elements with correct indexes")
+    void removeTest_WithCorrectInput() {
+        GenericSinglyLinkedList linkedList = createList(10);
+        linkedList.remove(0);
+        linkedList.remove(5);
+        String expectedResult = "1 2 3 4 5 7 8 9";
+        String actualResult = linkedList.toString();
+
+        assertEquals(expectedResult, actualResult);
     }
 
     @SuppressWarnings("unchecked")
