@@ -55,11 +55,25 @@ class GenericSinglyLinkedListTest {
     }
 
     @Test
-    @DisplayName("Test removing elements with incorrect indexes")
+    @DisplayName("Test removing elements with incorrect indexes: negative")
     void removeTest_WithIncorrectInput_negative() {
         GenericSinglyLinkedList linkedList = createList(10);
 
         assertThrows(ArrayIndexOutOfBoundsException.class, () -> linkedList.remove(-10));
+    }
+
+    @Test
+    @DisplayName("Test inserting value at correct index")
+    @SuppressWarnings("unchecked")
+    void insertTest_WithCorrectInput() {
+        GenericSinglyLinkedList linkedList = createList(10);
+        linkedList.insert(2, 67);
+        linkedList.insert(3, 67);
+
+        String expectedResult = "0 1 67 67 2 3 4 5 6 7 8 9";
+        String actualResult = linkedList.toString();
+
+        assertEquals(expectedResult, actualResult);
     }
 
     @SuppressWarnings("unchecked")
