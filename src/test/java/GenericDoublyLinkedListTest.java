@@ -48,10 +48,19 @@ class GenericDoublyLinkedListTest {
 
     @Test
     @DisplayName("Test add")
+    @SuppressWarnings("unchecked")
     void testAdd() {
         GenericDoublyLinkedList list = createList(5);
         list.add(5);
         assertEquals("0 1 2 3 4 5", list.toString());
+    }
+
+    @Test
+    @DisplayName("Test get")
+    void testGet() {
+        GenericDoublyLinkedList list = createList(5);
+        Integer expected = 1;
+        assertEquals(expected, list.get(1));
     }
 
 
