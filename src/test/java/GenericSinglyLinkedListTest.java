@@ -76,6 +76,20 @@ class GenericSinglyLinkedListTest {
         assertEquals(expectedResult, actualResult);
     }
 
+    @Test
+    @DisplayName("Test insertions at first and last indexes")
+    @SuppressWarnings("unchecked")
+    void insertTest_firstAndLastIndex() {
+        GenericSinglyLinkedList linkedList = createList(10);
+        linkedList.insert(9, 15);
+        linkedList.insert(0, 33);
+
+        String expectedResult = "33 0 1 2 3 4 5 6 7 8 15 9";
+        String actualResult = linkedList.toString();
+
+        assertEquals(expectedResult, actualResult);
+    }
+
     @SuppressWarnings("unchecked")
     private GenericSinglyLinkedList createList(int size) {
         GenericSinglyLinkedList linkedList = new GenericSinglyLinkedList();
