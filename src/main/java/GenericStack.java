@@ -11,6 +11,13 @@ public class GenericStack<T> {
         this.size = size;
         this.top = -1;
         this.array = new Object[size];
+    }
 
+    public T push(T item){
+        if (this.top+1 == this.size) {
+            //TODO: implement exceptions throw new StackOverflowException("Reached stack size limit!");
+        }
+        this.array[++this.top] = item;
+        return item;
     }
 }
