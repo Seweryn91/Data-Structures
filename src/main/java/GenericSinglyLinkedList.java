@@ -94,6 +94,20 @@ public class GenericSinglyLinkedList<T> {
     }
 
     @SuppressWarnings("unchecked")
+    public Node get(int index) {
+        checkIndex(index);
+
+        Node currentNode = this.head;
+        int nodeIndex = 0;
+
+        while (nodeIndex != index) {
+            currentNode = currentNode.next();
+            nodeIndex++;
+        }
+        return currentNode;
+    }
+
+    @SuppressWarnings("unchecked")
     private Node findPreviousNode(int index) {
         int nodeIndex = 0;
         Node currentNode = this.head;
