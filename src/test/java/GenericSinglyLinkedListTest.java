@@ -126,7 +126,13 @@ class GenericSinglyLinkedListTest {
         assertThrows(ArrayIndexOutOfBoundsException.class, () -> linkedList.get(-1));
     }
 
+    @Test
+    @DisplayName("Test getting value from too high index")
+    void getTest_tooHighIndex() {
+        GenericSinglyLinkedList linkedList = createList(10);
 
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> linkedList.get(10));
+    }
 
     @SuppressWarnings("unchecked")
     private GenericSinglyLinkedList createList(int size) {
