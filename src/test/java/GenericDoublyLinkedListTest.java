@@ -73,4 +73,12 @@ class GenericDoublyLinkedListTest {
         return list;
     }
 
+    @Test
+    @DisplayName("Test get with too high index")
+    void testGet_improperIndex_tooHigh() {
+        GenericDoublyLinkedList list = createList(5);
+        assertThrows(IllegalArgumentException.class, () -> list.get(5));
+
+    }
+
 }
