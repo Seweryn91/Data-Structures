@@ -35,7 +35,7 @@ class GenericHashTableTest {
     }
 
     @Test
-    @DisplayName("Test clear all")
+    @DisplayName("Test clear")
     void testClear() {
         GenericHashTable<String, Integer> table = new GenericHashTable<>();
         table.add("One", 1);
@@ -43,6 +43,15 @@ class GenericHashTableTest {
         table.add("Three", 3);
         table.clear();
         assertEquals(0, table.size());
+    }
+
+    @Test
+    @DisplayName("Test get with String-String pair")
+    void testGet_TypeString() {
+        GenericHashTable<String, String> table = new GenericHashTable<>();
+        table.add("Ala", "ma Asa");
+        table.add("Sierotka", "ma Rysia");
+        assertEquals("ma Rysia", table.get("Sierotka"));
     }
 
 }
