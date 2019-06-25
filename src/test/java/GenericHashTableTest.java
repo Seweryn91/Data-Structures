@@ -61,6 +61,13 @@ class GenericHashTableTest {
         assertEquals(1, table.size());
     }
 
+    @Test
+    @DisplayName("Test overwriting keys")
+    void testAdd_overwriteKeys() {
+        GenericHashTable<String, Integer> table = createOverridingTable();
+        assertEquals((Integer) 3, table.get("One"));
+    }
+
     private GenericHashTable<String, Integer> createOverridingTable() {
         GenericHashTable<String, Integer> table = new GenericHashTable<>();
         table.add("One", 1);
