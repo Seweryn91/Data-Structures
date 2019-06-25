@@ -56,4 +56,13 @@ public class GenericHashTable {
             this.elements = Arrays.copyOf(elements, newCapacity);
         }
     }
+
+    public void clear() {
+        for (int i = 0; i < this.capacity; i++) {
+            if (elements[i] != null) {
+                this.size -= elements[i].size();
+                elements[i].clear();
+            }
+        }
+    }
 }
