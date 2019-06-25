@@ -22,6 +22,7 @@ public class GenericArrayList{
         data[size++] = element;
     }
 
+    /**If index is higher than length of list then object is appended*/
     public void insert(int index, Object element) {
         updateCapacity(size + 1);
 
@@ -63,7 +64,7 @@ public class GenericArrayList{
     }
 
     private void checkIfInBounds(int index) {
-        if(index < 0 || index >= size)
+        if (index < 0 || index >= size)
             throw new ArrayIndexOutOfBoundsException("Invalid index: " + index + " size: " + size);
 
     }
@@ -102,9 +103,9 @@ public class GenericArrayList{
         StringBuilder output = new StringBuilder();
 
         for (Object object : data) {
-            output.append(" ").append(object.toString());
+            output.append(object.toString()).append(" ");
         }
 
-        return output.toString();
+        return output.toString().trim();
     }
 }
