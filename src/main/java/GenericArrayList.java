@@ -60,4 +60,15 @@ public class GenericArrayList{
             data = newData;
         }
     }
+
+    @Override
+    public String toString(){
+        StringBuilder output = new StringBuilder();
+
+        for (Object object : data) {
+            output.append(" ").append(object.toString());
+        }
+
+        return output.toString();
+    }
 }
