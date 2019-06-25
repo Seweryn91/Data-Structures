@@ -1,25 +1,39 @@
 @SuppressWarnings("unchecked")
 public class GenericDoublyLinkedList<T> {
 
-    class Node <T>{
+    class Node<T> {
         private T content;
         private Node previous;
         private Node next;
 
-        Node(T content) { this.content = content; }
+        Node(T content) {
+            this.content = content;
+        }
 
-        public Node previous() { return this.previous; }
+        public Node previous() {
+            return this.previous;
+        }
 
-        public Node next() { return this.next; }
+        public Node next() {
+            return this.next;
+        }
 
-        public T getContent() { return this.content; }
+        public T getContent() {
+            return this.content;
+        }
 
-        public void setPrevious(Node previous) { this.previous = previous; }
+        public void setPrevious(Node previous) {
+            this.previous = previous;
+        }
 
-        public void setNext(Node next) { this.next = next; }
+        public void setNext(Node next) {
+            this.next = next;
+        }
 
         @Override
-        public String toString() { return content.toString(); }
+        public String toString() {
+            return content.toString();
+        }
 
     }
 
@@ -27,9 +41,13 @@ public class GenericDoublyLinkedList<T> {
     private Node tail;
     private int size = 0;
 
-    public Object head() { return this.head.getContent(); }
+    public Object head() {
+        return this.head.getContent();
+    }
 
-    public Object tail() { return this.tail.getContent(); }
+    public Object tail() {
+        return this.tail.getContent();
+    }
 
 
     public void add(T element) {
@@ -139,7 +157,7 @@ public class GenericDoublyLinkedList<T> {
     }
 
     private void checkIndex(int index) {
-        if (index < 0 || index > size-1) {
+        if (index < 0 || index > size - 1) {
             throw new IllegalArgumentException("Index cannot be lower than 0 or higher than size of list!");
         }
     }
