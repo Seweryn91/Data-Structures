@@ -17,6 +17,11 @@ public class GenericArrayList{
         size = 0;
     }
 
+    public void add(Object element){
+        updateCapacity(size + 1);
+        data[size++] = element;
+    }
+
     private void updateCapacity(int minimumCapacity) {
         int previousCapacity = data.length;
 
