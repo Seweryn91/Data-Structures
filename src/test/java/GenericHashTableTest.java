@@ -54,6 +54,13 @@ class GenericHashTableTest {
         assertEquals("ma Rysia", table.get("Sierotka"));
     }
 
+    @Test
+    @DisplayName("Test add with repeated keys")
+    void testAdd_repeatedKeys() {
+        GenericHashTable<String, Integer> table = createOverridingTable();
+        assertEquals(1, table.size());
+    }
+
     private GenericHashTable<String, Integer> createOverridingTable() {
         GenericHashTable<String, Integer> table = new GenericHashTable<>();
         table.add("One", 1);
