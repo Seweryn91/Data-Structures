@@ -43,4 +43,6 @@ public class GenericHashTable {
         this.capacity = capacity;
         this.elements = new LinkedList[this.capacity];
     }
+
+    public int size() { return this.size; }
 }
