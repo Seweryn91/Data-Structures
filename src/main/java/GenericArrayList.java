@@ -61,6 +61,20 @@ public class GenericArrayList{
         }
     }
 
+    /**This method is used to decrease visible capacity for toString method*/
+    private void decreaseCapacity(){
+        int currentCapacity = data.length;
+
+        if(currentCapacity > size){
+
+            Object[] newData = new Object[size];
+            System.arraycopy(data, 0, newData, 0, size);
+            data = newData;
+
+        }
+    }
+
+
     @Override
     public String toString(){
         StringBuilder output = new StringBuilder();
