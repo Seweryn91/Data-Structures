@@ -28,19 +28,13 @@ public class GenericArrayList{
         Object[] newArray = new Object[data.length-1];
         if (index > 0){
 
-            for (int i=0; i < index; i++){
-                newArray[i] = data[i];
-            }
+            System.arraycopy(data, 0, newArray, 0, index);
 
-
-            for (int i=index; i < newArray.length; i++){
-                newArray[i] = data[i+1];
-            }
+            if (newArray.length - index >= 0)
+                System.arraycopy(data, index + 1, newArray, index, newArray.length - index);
         } else {
 
-            for (int i=1; i < data.length; i++){
-                newArray[i-1] = data[i];
-            }
+            if (data.length - 1 >= 0) System.arraycopy(data, 1, newArray, 0, data.length - 1);
         }
         data = newArray;
         size = newArray.length;
