@@ -16,4 +16,19 @@ public class GenericArrayList{
         data = new Object[capacity];
         size = 0;
     }
+
+    private void updateCapacity(int minimumCapacity) {
+        int previousCapacity = data.length;
+
+        if (minimumCapacity > previousCapacity) {
+            int newCapacity = (previousCapacity * 2);
+            if (newCapacity < minimumCapacity)
+                newCapacity = minimumCapacity;
+
+            Object[] newData = new Object[minimumCapacity];
+
+            System.arraycopy(data, 0, newData, 0, previousCapacity);
+            data = newData;
+        }
+    }
 }
