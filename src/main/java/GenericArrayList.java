@@ -22,6 +22,28 @@ public class GenericArrayList{
         data[size++] = element;
     }
 
+    public void insert(int index, Object element) {
+        updateCapacity(size + 1);
+
+        if (index < 0){
+            throw new IllegalArgumentException("Index must be equal to or higher than 0!");
+        }
+
+        Object[] newArray = new Object[size+1];
+
+        if(index > size){
+            index = data.length;
+            newArray = new Object[size+2];
+        }
+
+        System.arraycopy(data, 0, newArray, 0, index);
+
+        if (size - index >= 0) System.arraycopy(data, index, newArray, index + 1, size - index);
+        newArray[index] = element;
+        decreaseCapacity();
+        data = newArray;
+    }
+
 
     public void remove(int index){
         checkIfInBounds(index);
