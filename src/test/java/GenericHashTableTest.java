@@ -54,4 +54,12 @@ class GenericHashTableTest {
         assertEquals("ma Rysia", table.get("Sierotka"));
     }
 
+    private GenericHashTable<String, Integer> createOverridingTable() {
+        GenericHashTable<String, Integer> table = new GenericHashTable<>();
+        table.add("One", 1);
+        table.add("One", 2);
+        table.add("One", 3);
+        return table;
+    }
+
 }
