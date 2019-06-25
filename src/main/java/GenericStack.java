@@ -17,7 +17,7 @@ public class GenericStack<T> {
     }
 
     public T push(T item) throws StackOverflowException {
-        if (this.top+1 == this.size) {
+        if (this.top + 1 == this.size) {
             throw new StackOverflowException("Reached stack size limit!");
         }
         this.array[++this.top] = item;
@@ -42,8 +42,12 @@ public class GenericStack<T> {
         return this.size;
     }
 
-    public int spaceTaken() { return this.top + 1; }
+    public int spaceTaken() {
+        return this.top + 1;
+    }
 
-    public int spaceLeft() { return this.size - (this.top + 1); }
+    public int spaceLeft() {
+        return this.size - (this.top + 1);
+    }
 
 }
