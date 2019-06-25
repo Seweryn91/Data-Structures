@@ -19,9 +19,9 @@ class GenericHashTableTest {
         GenericHashTable<String, Integer> table = new GenericHashTable<>();
         table.add("Five", 5);
         table.add("Six", 6);
-        assertEquals(2, table.size());
+        int size = table.size();
         table.remove("Five");
-        assertEquals(1, table.size());
+        assertEquals(size-1, table.size());
     }
 
     @Test
