@@ -22,6 +22,30 @@ public class GenericArrayList{
         data[size++] = element;
     }
 
+
+    public void remove(int index){
+        checkIfInBounds(index);
+        Object[] newArray = new Object[data.length-1];
+        if (index > 0){
+
+            for (int i=0; i < index; i++){
+                newArray[i] = data[i];
+            }
+
+
+            for (int i=index; i < newArray.length; i++){
+                newArray[i] = data[i+1];
+            }
+        } else {
+
+            for (int i=1; i < data.length; i++){
+                newArray[i-1] = data[i];
+            }
+        }
+        data = newArray;
+        size = newArray.length;
+    }
+
     private void checkIfInBounds(int index) {
         if(index < 0 || index >= size)
             throw new ArrayIndexOutOfBoundsException("Invalid index: " + index + " size: " + size);
