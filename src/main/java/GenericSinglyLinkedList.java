@@ -1,6 +1,6 @@
 public class GenericSinglyLinkedList<T> {
 
-    class Node<T>{
+    class Node<T> {
         private T content;
         private Node next;
 
@@ -45,7 +45,7 @@ public class GenericSinglyLinkedList<T> {
         if (this.size == 0) {
             this.head = newNode;
             this.tail = newNode;
-        }else{
+        } else {
             this.tail.setNext(newNode);
             this.tail = newNode;
         }
@@ -58,13 +58,13 @@ public class GenericSinglyLinkedList<T> {
         checkIndex(index);
 
 
-        if(this.head == this.tail) {
+        if (this.head == this.tail) {
             tail = null;
         }
 
-        if(index == 0) {
+        if (index == 0) {
             this.head = this.head.next();
-        }else{
+        } else {
             Node previousNode = findPreviousNode(index);
             previousNode.setNext(previousNode.next().next());
 
