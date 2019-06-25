@@ -1,55 +1,55 @@
-public class GenericArrayList{
+public class GenericArrayList {
 
-    private int size = 0;
+    private int size;
     private Object[] data;
-    private int capacity;
 
-    public GenericArrayList(){
+    public GenericArrayList() {
         data = new Object[1];
         size = 0;
     }
 
-    public GenericArrayList(int capacity){
-        if (capacity < 1){
+    public GenericArrayList(int capacity) {
+        if (capacity < 1) {
             capacity = 1;
         }
         data = new Object[capacity];
         size = 0;
     }
 
-    public void add(Object element){
+    public void add(Object element) {
         updateCapacity(size + 1);
         data[size++] = element;
     }
 
-    /**If index is higher than length of list then object is appended*/
+    /**
+     * If index is higher than length of list then object is appended
+     */
     public void insert(int index, Object element) {
         updateCapacity(size + 1);
 
-        if (index < 0){
+        if (index < 0) {
             throw new IllegalArgumentException("Index must be equal to or higher than 0!");
         }
 
-        Object[] newArray = new Object[size+1];
+        Object[] newArray = new Object[size + 1];
 
-        if(index > size){
+        if (index > size) {
             index = data.length;
-            newArray = new Object[size+2];
+            newArray = new Object[size + 2];
         }
 
         System.arraycopy(data, 0, newArray, 0, index);
 
         if (size - index >= 0) System.arraycopy(data, index, newArray, index + 1, size - index);
         newArray[index] = element;
-        decreaseCapacity();
         data = newArray;
     }
 
 
-    public void remove(int index){
+    public void remove(int index) {
         checkIfInBounds(index);
-        Object[] newArray = new Object[data.length-1];
-        if (index > 0){
+        Object[] newArray = new Object[data.length - 1];
+        if (index > 0) {
 
             System.arraycopy(data, 0, newArray, 0, index);
 
@@ -84,28 +84,14 @@ public class GenericArrayList{
         }
     }
 
-    /**This method is used to decrease visible capacity for toString method*/
-    private void decreaseCapacity(){
-        int currentCapacity = data.length;
-
-        if(currentCapacity > size){
-
-            Object[] newData = new Object[size];
-            System.arraycopy(data, 0, newData, 0, size);
-            data = newData;
-
-        }
-    }
-
-
     @Override
-    public String toString(){
+    public String toString() {
         StringBuilder output = new StringBuilder();
 
         for (Object object : data) {
             output.append(object.toString()).append(" ");
         }
-
         return output.toString().trim();
     }
+
 }
