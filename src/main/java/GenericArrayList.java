@@ -22,6 +22,12 @@ public class GenericArrayList{
         data[size++] = element;
     }
 
+    private void checkIfInBounds(int index) {
+        if(index < 0 || index >= size)
+            throw new ArrayIndexOutOfBoundsException("Invalid index: " + index + " size: " + size);
+
+    }
+
     private void updateCapacity(int minimumCapacity) {
         int previousCapacity = data.length;
 
