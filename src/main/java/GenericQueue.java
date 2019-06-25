@@ -7,7 +7,7 @@ public class GenericQueue<T> {
         private Node nextNode;
         private Integer priority = -1;
 
-        public Node(T value){
+        public Node(T value) {
             this.value = value;
         }
 
