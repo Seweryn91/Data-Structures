@@ -1,4 +1,5 @@
 import java.security.Key;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -45,4 +46,14 @@ public class GenericHashTable {
     }
 
     public int size() { return this.size; }
+
+    public void ensureSpace(int requiredSize) {
+        if (requiredSize < 0) {
+            throw new IllegalArgumentException("Array cannot be resized to negative value");
+        }
+        if (requiredSize > this.capacity) {
+            int newCapacity = (this.capacity*2);
+            this.elements = Arrays.copyOf(elements, newCapacity);
+        }
+    }
 }
