@@ -67,6 +67,19 @@ public class GenericHashTable<K, V> {
         this.size++;
     }
 
+    @SuppressWarnings("SuspiciousMethodCalls")
+    public void remove(K key) {
+        int keyIndex = getKeyIndex(key);
+        List<KeyValue> entries = elements[keyIndex];
+
+        for (KeyValue kv : entries) {
+            if (kv.getKey().equals(key)) {
+                entries.remove(key);
+                this.size--;
+            }
+        }
+    }
+
     public int size() { return this.size; }
 
     public void ensureSpace(int requiredSize) {
