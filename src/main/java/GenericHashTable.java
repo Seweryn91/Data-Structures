@@ -1,4 +1,3 @@
-import java.security.Key;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -44,6 +43,28 @@ public class GenericHashTable<K, V> {
     public GenericHashTable(int capacity) {
         this.capacity = capacity;
         this.elements = new LinkedList[this.capacity];
+    }
+
+    @SuppressWarnings("unchecked")
+    public void add(K key, V value) {
+        ensureSpace(this.size+1);
+        int keyIndex = getKeyIndex(key);
+
+        if (elements[keyIndex] == null) {
+            elements[keyIndex] = new LinkedList<KeyValue>();
+        }
+
+        List<KeyValue> linkedList = elements[keyIndex];
+
+        for (KeyValue kv: linkedList) {
+            if (kv.getKey().equals(key)) {
+                kv.setValue(value);
+                return;
+            }
+        }
+
+        linkedList.add(new KeyValue(key, value));
+        this.size++;
     }
 
     public int size() { return this.size; }
