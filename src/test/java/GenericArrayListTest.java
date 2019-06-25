@@ -85,8 +85,7 @@ class GenericArrayListTest {
 
     private GenericArrayList createIntegerArray(int numOfElements) {
         GenericArrayList array = new GenericArrayList();
-        for (int i = 0; i < numOfElements; ++i)
-        {
+        for (int i = 0; i < numOfElements; ++i) {
             array.add(i);
         }
         return array;
