@@ -34,5 +34,15 @@ class GenericHashTableTest {
         assertEquals((Integer) 6, table.get("Six"));
     }
 
+    @Test
+    @DisplayName("Test clear all")
+    void testClear() {
+        GenericHashTable<String, Integer> table = new GenericHashTable<>();
+        table.add("One", 1);
+        table.add("Two", 2);
+        table.add("Three", 3);
+        table.clear();
+        assertEquals(0, table.size());
+    }
 
 }
