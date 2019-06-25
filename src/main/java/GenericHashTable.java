@@ -9,7 +9,7 @@ public class GenericHashTable<K, V> {
 
         public V value;
 
-        public KeyValue (K key, V value) {
+        public KeyValue(K key, V value) {
             this.key = key;
             this.value = value;
         }
@@ -47,7 +47,7 @@ public class GenericHashTable<K, V> {
 
     @SuppressWarnings("unchecked")
     public void add(K key, V value) {
-        ensureSpace(this.size+1);
+        ensureSpace(this.size + 1);
         int keyIndex = getKeyIndex(key);
 
         if (elements[keyIndex] == null) {
@@ -56,7 +56,7 @@ public class GenericHashTable<K, V> {
 
         List<KeyValue> linkedList = elements[keyIndex];
 
-        for (KeyValue kv: linkedList) {
+        for (KeyValue kv : linkedList) {
             if (kv.getKey().equals(key)) {
                 kv.setValue(value);
                 return;
@@ -93,14 +93,16 @@ public class GenericHashTable<K, V> {
         return null;
     }
 
-    public int size() { return this.size; }
+    public int size() {
+        return this.size;
+    }
 
     public void ensureSpace(int requiredSize) {
         if (requiredSize < 0) {
             throw new IllegalArgumentException("Array cannot be resized to negative value");
         }
         if (requiredSize > this.capacity) {
-            int newCapacity = (this.capacity*2);
+            int newCapacity = (this.capacity * 2);
             this.elements = Arrays.copyOf(elements, newCapacity);
         }
     }
