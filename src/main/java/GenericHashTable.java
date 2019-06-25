@@ -3,7 +3,8 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-public class GenericHashTable {
+public class GenericHashTable<K, V> {
+
     class KeyValue<K, V> {
         public K key;
 
@@ -64,5 +65,9 @@ public class GenericHashTable {
                 elements[i].clear();
             }
         }
+    }
+
+    private int getKeyIndex(K key) {
+        return key.hashCode() % capacity;
     }
 }
