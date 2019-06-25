@@ -144,7 +144,7 @@ class GenericSinglyLinkedListTest {
     @SuppressWarnings("unchecked")
     private GenericSinglyLinkedList createList(int size) {
         GenericSinglyLinkedList linkedList = new GenericSinglyLinkedList();
-        for(int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++) {
             linkedList.add(i);
         }
         return linkedList;

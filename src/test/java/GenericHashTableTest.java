@@ -21,7 +21,7 @@ class GenericHashTableTest {
         table.add("Six", 6);
         int size = table.size();
         table.remove("Five");
-        assertEquals(size-1, table.size());
+        assertEquals(size - 1, table.size());
     }
 
     @Test

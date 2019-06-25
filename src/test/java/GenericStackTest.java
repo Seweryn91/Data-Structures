@@ -84,7 +84,7 @@ public class GenericStackTest {
     @Test
     @DisplayName("Test calculating space left")
     @SuppressWarnings("unchecked")
-    void testSpaceLeft() throws StackOverflowException{
+    void testSpaceLeft() throws StackOverflowException {
         GenericStack stack = new GenericStack(10);
         stack.push(5);
         stack.push(6);

@@ -67,7 +67,6 @@ class GenericQueueTest {
     }
 
 
-
     @SuppressWarnings("unchecked")
     private GenericQueue createQueue(int size) {
         GenericQueue queue = new GenericQueue();
@@ -75,7 +74,7 @@ class GenericQueueTest {
         for (int i = 0; i < size; i++) {
             queue.enqueue(i);
         }
-    return queue;
+        return queue;
     }
 
 }
